@@ -64,7 +64,7 @@ namespace  GAME
             _data.Value = _data.ValueStep;
 
             if (_data.Value >= 1)
-                GameSystem.Events.GameActionWithFade?.Invoke(Close, GameSystem.Events.GameMainMenuShow);
+                GameSystem.Events.GameActionWithFade?.Invoke(Close, MainMenuCanvas.Instance.Show);
         }
 
         private void Close()

@@ -19,9 +19,11 @@ namespace  GAME
         {
             _view = MainMenuCanvas.Instance.View;
             _view.gameObject.SetActive(false);
+            _view.ButtonHost.Button.onClick.AddListener(MenuHost);
+            _view.ButtonClient.Button.onClick.AddListener(MenuClient);
 
-            GameSystem.Events.GameMainMenuShow += Show;
-            GameSystem.Events.GameMainMenuHide += Hide;
+            MainMenuCanvas.Instance.Show += Show;
+            MainMenuCanvas.Instance.Hide += Hide;
             
         }
 
@@ -41,6 +43,7 @@ namespace  GAME
             _show = true;
 
             _view.gameObject.SetActive(true);
+            _view.InputHostName.text = PlayerPrefs.GetString("host_name", "");
 
             GameSystem.Data.GamePause = true;
         }
@@ -58,12 +61,22 @@ namespace  GAME
 
         private void MenuHost()
         {
+            if(_view.InputHostName.text == "") return;
+            
+            PlayerPrefs.SetString("host_name", _view.InputHostName.text);
             SoundButtonClick();
+            
+            GameSystem.Events.GameActionWithFade?.Invoke(Hide, GameSystem.Events.GameModeHost);
         }
 
         private void MenuClient()
         {
+            if(_view.InputHostName.text == "") return;
+            
+            PlayerPrefs.SetString("host_name", _view.InputHostName.text);
             SoundButtonClick();
+
+            GameSystem.Events.GameActionWithFade?.Invoke(Hide, GameSystem.Events.GameModeClient);
         }
         
         private void SoundButtonClick()
