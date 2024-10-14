@@ -21,7 +21,6 @@ namespace  GAME
             _data = AppLoadingSystem.Data;
             
             AppLoadingSystem.Events.AppLoad += AppLoad;
-            WorldSystem.Events.WorldInitComplete += NextStep;
         }
 
         private void AppLoad()
