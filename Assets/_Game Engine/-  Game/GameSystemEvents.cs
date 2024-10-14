@@ -9,8 +9,8 @@ namespace GAME
         
         public Action GameMainMenuShow;
         public Action GameMainMenuHide;
-        public Action GameModeHost;
-        public Action GameModeClient;
+        public Action<string> GameModeHost;
+        public Action<string> GameModeClient;
         public Action GameStart;
         public Action GameInit;
         public Action GameReady;

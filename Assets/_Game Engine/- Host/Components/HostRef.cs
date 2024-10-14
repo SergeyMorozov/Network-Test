@@ -2,7 +2,8 @@ using UnityEngine;
 
 namespace GAME
 {
-    public class UISettings : ScriptableObject
+    public class HostRef : MonoBehaviour
     {
     }
 }
+

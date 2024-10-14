@@ -21,8 +21,6 @@ namespace  GAME
             _data = AppLoadingSystem.Data;
             
             AppLoadingSystem.Events.AppLoad += AppLoad;
-            GameStoreSystem.Events.SettingLoaded += NextStep;
-            GameStoreSystem.Events.LoadComplete += NextStep;
             WorldSystem.Events.WorldInitComplete += NextStep;
         }
 

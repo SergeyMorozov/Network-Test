@@ -2,12 +2,11 @@ using UnityEngine;
 
 namespace GAME
 {
-    public class WorldPreset : ScriptableObject
+    public class ClientPreset : ScriptableObject
     {
         public string Name;
         public Sprite Icon;
-        public WorldRef Prefab;
-
+        public ClientRef Prefab;
     }
 }
 
