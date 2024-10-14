@@ -6,6 +6,8 @@ namespace GAME
     {
         public PlayerPreset Preset;
         public PlayerRef Ref;
+
+        public int Side;
     }
 }
 

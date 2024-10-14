@@ -6,6 +6,7 @@ namespace GAME
     [Serializable]
     public class PlayerSystemData
     {
-        public List<PlayerObject> listObjects;
+        public PlayerObject CurrentPlayer;
+        public List<PlayerObject> Players;
     }
 }
