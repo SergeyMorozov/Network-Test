@@ -18,6 +18,8 @@ namespace  GAME
                 if(player == null) continue;
                 
                 battle.Players.Add(player);
+                battle.MoveSide = 1;
+                
                 LevelSystem.Events.SetPlayer?.Invoke(battle.Level, player);
                 BattleSystem.Events.SetState?.Invoke(battle, BattleState.Start);
             }

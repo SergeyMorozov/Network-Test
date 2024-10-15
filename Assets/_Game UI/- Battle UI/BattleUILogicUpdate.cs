@@ -83,16 +83,18 @@ namespace  GAME
         private void SelectSkill(SkillData skill)
         {
             Debug.Log("SelectSkill " + skill.Preset.Name);
-            
-            SkillSystem.Events.SkillActive?.Invoke(skill);
+            SkillSystem.Events.SkillActive?.Invoke(_battle, _battle.PlayerSource, _battle.PlayerTarget, skill);
         }
 
         private void Update()
         {
             if(!_show) return;
+
+            // _view.PanelBlocking.SetActive(_battle.MoveSide != _battle.Players[0].Side);
             
             foreach (BattleViewSkill viewSkill in _listSkills)
             {
+                if(viewSkill.Skill.Preset.TimeRestore == 0) continue;
                 viewSkill.Progress.fillAmount = viewSkill.Skill.MovesToRecovery / viewSkill.Skill.Preset.TimeRestore;
             }
         }

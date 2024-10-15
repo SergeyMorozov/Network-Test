@@ -19,12 +19,16 @@ namespace  GAME
             player.Preset = playerPreset;
             player.Ref = Tools.AddObject<PlayerRef>(playerPreset.Prefab, player.transform);
 
+            player.Health = player.Preset.Health;
+            
             player.Skills = new List<SkillData>();
             foreach (SkillPreset skillPreset in playerPreset.Skills)
             {
                 SkillData skill = new SkillData { Preset = skillPreset };
                 player.Skills.Add(skill);
             }
+            
+            player.Buffs = new List<SkillData>();
             
             PlayerSystem.Data.Players.Add(player);
             return player;

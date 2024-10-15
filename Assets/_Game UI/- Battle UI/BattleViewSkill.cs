@@ -12,6 +12,7 @@ namespace GAME
         public Image Progress;
         public Button Button;
 
+        [Header("Data ___")]
         public SkillData Skill;
     }
 }

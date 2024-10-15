@@ -8,10 +8,12 @@ namespace GAME
         public PlayerPreset Preset;
         public PlayerRef Ref;
 
+        [Header("Data ___")]
         public int Side;
         public bool IsReadyForBattle;
         public float Health;
         public List<SkillData> Skills;
+        public List<SkillData> Buffs;
     }
 }
 

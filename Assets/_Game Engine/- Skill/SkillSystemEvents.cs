@@ -5,6 +5,6 @@ namespace GAME
     [Serializable]
     public class SkillSystemEvents
     {
-        public Action<SkillData> SkillActive;
+        public Action<BattleData, PlayerObject, PlayerObject, SkillData> SkillActive;
     }
 }

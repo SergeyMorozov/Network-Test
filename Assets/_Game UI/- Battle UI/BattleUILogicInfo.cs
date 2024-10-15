@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
@@ -80,6 +81,17 @@ namespace  GAME
             view.gameObject.SetActive(true);
             view.Player = _battle.Players[index];
         }
-        
+
+
+        private void Update()
+        {
+            if(!_show) return;
+            
+            foreach (BattleViewInfo viewInfo in _view.PanelInfo)
+            {
+                viewInfo.TextHealth.text = viewInfo.Player.Health.ToString();
+                viewInfo.SliderHealth.value = viewInfo.Player.Health / viewInfo.Player.Preset.Health;
+            }
+        }
     }
 }
