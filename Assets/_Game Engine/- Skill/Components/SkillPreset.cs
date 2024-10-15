@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace GAME
@@ -15,6 +16,9 @@ namespace GAME
         public float ValueActive;
         public int TimeActive;
         public int TimeRestore;
+        
+        [Space]
+        public List<GameObject> FX;
     }
 
     public enum SkillTarget

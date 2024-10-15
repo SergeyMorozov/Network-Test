@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace GAME
 {
@@ -11,6 +12,7 @@ namespace GAME
         public int MovesToRecovery;
         public int MovesToRemoveBuff;
         public PlayerObject PlayerOwner;
+        public GameObject FX;
     }
 }
 

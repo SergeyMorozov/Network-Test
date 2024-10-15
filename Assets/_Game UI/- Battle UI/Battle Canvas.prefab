@@ -1332,6 +1332,7 @@ MonoBehaviour:
     MovesToRecovery: 0
     MovesToRemoveBuff: 0
     PlayerOwner: {fileID: 0}
+    FX: {fileID: 0}
 --- !u!1 &2034683578811141865
 GameObject:
   m_ObjectHideFlags: 0
@@ -1395,6 +1396,7 @@ MonoBehaviour:
     MovesToRecovery: 0
     MovesToRemoveBuff: 0
     PlayerOwner: {fileID: 0}
+    FX: {fileID: 0}
 --- !u!1 &2436237852667786176
 GameObject:
   m_ObjectHideFlags: 0
@@ -3125,6 +3127,7 @@ MonoBehaviour:
     MovesToRecovery: 0
     MovesToRemoveBuff: 0
     PlayerOwner: {fileID: 0}
+    FX: {fileID: 0}
 --- !u!1 &5780004097768309593
 GameObject:
   m_ObjectHideFlags: 0
@@ -3807,7 +3810,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 417, y: 309}
+  m_AnchoredPosition: {x: 417, y: 369}
   m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4601972506214921281
@@ -4954,7 +4957,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -436.00003, y: 309}
+  m_AnchoredPosition: {x: -436.00003, y: 294}
   m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4942502449107193140

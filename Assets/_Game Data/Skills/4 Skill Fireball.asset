@@ -21,3 +21,6 @@ MonoBehaviour:
   ValueActive: 1
   TimeActive: 5
   TimeRestore: 6
+  FX:
+  - {fileID: 7922456221644502114, guid: 14721c2658946fe41b398e9ec1bae1ba, type: 3}
+  - {fileID: 4280649979575314694, guid: 2a0e9fd1ac7040a4fb4135d1e765a696, type: 3}

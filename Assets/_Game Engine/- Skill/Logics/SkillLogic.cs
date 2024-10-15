@@ -30,6 +30,7 @@ namespace GAME
                 {
                     var buff = player.Buffs[i];
                     if (buff.MovesToRemoveBuff != 0) continue;
+                    if(buff.FX != null) Destroy(buff.FX);
                     player.Buffs.Remove(buff);
                     i--;
                 }

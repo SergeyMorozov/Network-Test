@@ -21,3 +21,5 @@ MonoBehaviour:
   ValueActive: 0
   TimeActive: 0
   TimeRestore: 5
+  FX:
+  - {fileID: 4965035185732961556, guid: 09200454b3037a9429fa4e57f3647d42, type: 3}

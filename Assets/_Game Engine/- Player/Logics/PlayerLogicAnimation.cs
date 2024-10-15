@@ -38,6 +38,8 @@ namespace  GAME
 
                 case 5:
                     playerSource.Ref.Animator.SetTrigger("Clear");
+                    GameObject fx = Tools.AddObject(skill.Preset.FX[0], playerSource.transform);
+                    Destroy(fx, 3);
                     break;
             }
         }
@@ -49,17 +51,22 @@ namespace  GAME
 
         private void AnimShield(PlayerObject player)
         {
-            
+            SkillData skill = player.GetBuff(2);
+            skill.FX = Tools.AddObject(skill.Preset.FX[0], player.transform);
         }
 
         private void AnimHealth(PlayerObject player)
         {
-            
+            SkillData skill = player.GetBuff(3);
+            skill.FX = Tools.AddObject(skill.Preset.FX[0], player.transform);
         }
 
         private void AnimFireball(PlayerObject player)
         {
-            
+            SkillData skill = player.PlayerTarget.GetBuff(4);
+            skill.FX = Tools.AddObject(skill.Preset.FX[1], player.PlayerTarget.transform);
+            GameObject fx = Tools.AddObject(skill.Preset.FX[0], player.PlayerTarget.transform);
+            Destroy(fx, 3);
         }
 
 

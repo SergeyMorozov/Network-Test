@@ -19,6 +19,7 @@ namespace  GAME
             {
                 var buff = playerSource.Buffs[i];
                 if(buff.PlayerOwner == playerSource) continue;
+                if(buff.FX != null) Destroy(buff.FX);
                 playerSource.Buffs.Remove(buff);
                 i--;
             }
