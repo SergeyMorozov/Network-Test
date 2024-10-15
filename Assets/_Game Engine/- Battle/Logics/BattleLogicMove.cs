@@ -12,15 +12,18 @@ namespace  GAME
 
         private void MoveComplete(BattleData battle)
         {
-            StartCoroutine(MoveNext(battle));
+            StartCoroutine(CalculateBuffs(battle));
         }
 
-        IEnumerator MoveNext(BattleData battle)
+        IEnumerator CalculateBuffs(BattleData battle)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
             
             battle.MoveSide = battle.MoveSide == 1 ? 2 : 1;
-            BattleSystem.Events.MoveNext?.Invoke(battle);
+            BattleSystem.Events.CalculateBuffs?.Invoke(battle);
+            
+            yield return new WaitForSeconds(1f);
+            BattleSystem.Events.MoveReady?.Invoke(battle);
         }
     }
 }

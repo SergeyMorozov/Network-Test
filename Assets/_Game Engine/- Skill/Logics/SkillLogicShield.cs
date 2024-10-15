@@ -17,6 +17,7 @@ namespace  GAME
             skill.IsActive = false;
 
             SkillData buff = new SkillData();
+            buff.PlayerOwner = playerSource;
             buff.Preset = skill.Preset;
             buff.MovesToRemoveBuff = skill.Preset.TimeActive;
             playerSource.Buffs.Add(buff);

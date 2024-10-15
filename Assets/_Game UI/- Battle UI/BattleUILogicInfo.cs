@@ -101,7 +101,9 @@ namespace  GAME
 
                 foreach (BattleViewSkill viewBuff in viewInfo.Buffs)
                 {
-                    viewBuff.Text.text = viewBuff.Skill.MovesToRemoveBuff.ToString();
+                    viewBuff.Text.text = viewBuff.Skill.MovesToRemoveBuff > 0
+                        ? viewBuff.Skill.MovesToRemoveBuff.ToString()
+                        : "";
                 }
                 
                 viewInfo.TextHealth.text = viewInfo.Player.Health.ToString();

@@ -25,6 +25,8 @@ namespace  GAME
             _view.PanelBlocking.SetActive(false);
             
             BattleSystem.Events.StateChanged += StateChanged;
+            BattleSystem.Events.MoveComplete += MoveComplete;
+            BattleSystem.Events.MoveReady += MoveReady;
         }
 
         private void StateChanged(BattleData battle, BattleState from, BattleState to)
@@ -85,13 +87,21 @@ namespace  GAME
             Debug.Log("SelectSkill " + skill.Preset.Name);
             SkillSystem.Events.SkillActive?.Invoke(_battle, _battle.PlayerSource, _battle.PlayerTarget, skill);
         }
+        
+        private void MoveComplete(BattleData battle)
+        {
+            if(_battle.MoveSide == _battle.Players[0].Side) _view.PanelBlocking.SetActive(true);
+        }
+
+        private void MoveReady(BattleData battle)
+        {
+            if(_battle.MoveSide == _battle.Players[0].Side) _view.PanelBlocking.SetActive(false);
+        }
 
         private void Update()
         {
             if(!_show) return;
 
-            _view.PanelBlocking.SetActive(_battle.MoveSide != _battle.Players[0].Side);
-            
             foreach (BattleViewSkill viewSkill in _listSkills)
             {
                 viewSkill.Button.interactable = viewSkill.Skill.IsActive;

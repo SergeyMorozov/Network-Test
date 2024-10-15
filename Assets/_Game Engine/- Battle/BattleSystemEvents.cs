@@ -10,7 +10,8 @@ namespace GAME
         public Action<BattleData, BattleState, BattleState> StateChanged;
 
         public Action<BattleData> MoveComplete;
-        public Action<BattleData> MoveNext;
+        public Action<BattleData> CalculateBuffs;
+        public Action<BattleData> MoveReady;
         public Action<BattleData> BattleExit;
     }
 }

@@ -10,6 +10,7 @@ namespace GAME
         public bool IsActive;
         public int MovesToRecovery;
         public int MovesToRemoveBuff;
+        public PlayerObject PlayerOwner;
     }
 }
 

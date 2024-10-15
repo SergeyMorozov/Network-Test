@@ -6,10 +6,10 @@ namespace GAME
     {
         private void Awake()
         {
-            BattleSystem.Events.MoveNext += MoveNext;
+            BattleSystem.Events.MoveReady += MoveReady;
         }
 
-        private void MoveNext(BattleData battle)
+        private void MoveReady(BattleData battle)
         {
             foreach (PlayerObject player in battle.Players)
             {
@@ -22,13 +22,14 @@ namespace GAME
                     skill.MovesToRecovery--;
                     skill.IsActive = skill.MovesToRecovery == 0;
                 }
-
+            }
+            
+            foreach (PlayerObject player in battle.Players)
+            {
                 for (var i = 0; i < player.Buffs.Count; i++)
                 {
                     var buff = player.Buffs[i];
-                    buff.MovesToRemoveBuff--;
                     if (buff.MovesToRemoveBuff != 0) continue;
-
                     player.Buffs.Remove(buff);
                     i--;
                 }

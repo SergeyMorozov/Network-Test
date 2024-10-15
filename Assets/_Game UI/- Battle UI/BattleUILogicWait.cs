@@ -87,7 +87,16 @@ namespace  GAME
 
         private void MoveNext()
         {
-            BattleSystem.Events.MoveComplete?.Invoke(_battle);
+            SkillData skill = _battle.Players[1].Skills[3];
+            if(skill.IsActive)
+            {
+                Debug.Log("EnemySkill " + skill.Preset.Name);
+                SkillSystem.Events.SkillActive?.Invoke(_battle, _battle.PlayerSource, _battle.PlayerTarget, skill);
+            }
+            else
+            {
+                BattleSystem.Events.MoveComplete?.Invoke(_battle);
+            }
         }
     }
 }
