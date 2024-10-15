@@ -9,6 +9,7 @@ namespace GAME
         public PlayerRef Ref;
 
         [Header("Data ___")]
+        public PlayerObject PlayerTarget;
         public int Side;
         public bool IsReadyForBattle;
         public float Health;

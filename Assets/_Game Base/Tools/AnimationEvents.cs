@@ -1,57 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using GAME;
 using UnityEngine;
 
 public class AnimationEvents : MonoBehaviour
 {
-/*    
-    private FactoryObject _factoryObject;
+    private PlayerObject _player;
 
     private void Start()
     {
-        _factoryObject = GetComponentInParent<FactoryObject>();
+        _player = GetComponentInParent<PlayerObject>();
     }
 
-    public void FactoryInstallComplete()
+    public void AnimAttack()
     {
-        FactoriesSystem.Events.FactoryInstallComplete?.Invoke(_factoryObject);
+        PlayerSystem.Events.AnimAttack?.Invoke(_player);
     }
 
-    public void FactoryWorkStart()
+    public void AnimShield()
     {
-        FactoriesSystem.Events.FactoryWorkStart?.Invoke(_factoryObject);
+        PlayerSystem.Events.AnimShield?.Invoke(_player);
     }
 
-    public void FactoryWorking()
+    public void AnimHealth()
     {
-        FactoriesSystem.Events.FactoryWorking?.Invoke(_factoryObject);
+        PlayerSystem.Events.AnimHealth?.Invoke(_player);
     }
 
-    public void FactoryWorkFinish()
+    public void AnimFireball()
     {
-        FactoriesSystem.Events.FactoryWorking?.Invoke(_factoryObject);
+        PlayerSystem.Events.AnimFireball?.Invoke(_player);
     }
-
-    public void FactoryItemHook()
-    {
-        FactoriesSystem.Events.ItemHook?.Invoke(_factoryObject);
-    }
-
-    public void FactoryItemUnhook()
-    {
-        FactoriesSystem.Events.ItemUnhook?.Invoke(_factoryObject);
-    }
-
-    public void ItemCreate()
-    {
-        FactoriesSystem.Events.ItemCreate?.Invoke(_factoryObject);
-    }
-    
-    public void ItemReady()
-    {
-        FactoriesSystem.Events.ItemReady?.Invoke(_factoryObject);
-    }
-*/
-
 }
