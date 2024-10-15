@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3951909137547362925}
   - component: {fileID: 6862454524661281853}
   - component: {fileID: 2299145690927520178}
+  - component: {fileID: -7347706332124150370}
+  - component: {fileID: 5305291564455903971}
   m_Layer: 0
   m_Name: Battle System
   m_TagString: Untagged
@@ -47,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 9e533fb1fd046d3408ed15e2ee6fb744, type: 2}
   data:
-    listObjects: []
+    Battles: []
 --- !u!114 &2299145690927520178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,5 +60,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e8f1892c75170a49b98d543f944b33b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-7347706332124150370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6067593183582288488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 099de58a77bad0c47bc611c04717ada0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5305291564455903971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6067593183582288488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44811e7587a084840a394911514efd82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

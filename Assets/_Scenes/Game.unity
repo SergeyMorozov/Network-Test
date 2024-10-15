@@ -149,12 +149,12 @@ Transform:
   m_Children:
   - {fileID: 1723087602}
   - {fileID: 1548649677}
-  - {fileID: 1493978410}
-  - {fileID: 786423105}
   - {fileID: 938146163}
+  - {fileID: 786423105}
+  - {fileID: 1493978410}
   - {fileID: 275699089}
-  - {fileID: 1592306825}
   - {fileID: 1197436861}
+  - {fileID: 1592306825}
   - {fileID: 615700873}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

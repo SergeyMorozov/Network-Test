@@ -5,13 +5,12 @@ using UnityEngine.UI;
 
 namespace GAME
 {
-    public class BattleView : MonoBehaviour
+    public class BattleViewInfo : MonoBehaviour
     {
+        public Slider SliderHealth;
+        public TextMeshProUGUI TextHealth;
         public BattleViewSkill SkillPrefab;
         public Transform Content;
-        public List<BattleViewInfo> PanelInfo;
-        public CanvasGroup PanelBlocking;
-        public Button ButtonExit;
     }
 }
 

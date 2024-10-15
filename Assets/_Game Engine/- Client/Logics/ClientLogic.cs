@@ -11,6 +11,7 @@ namespace  GAME
 
         private void StartClient(string hostName)
         {
+            NetworkSystem.Data.ConnectType = ConnectType.Client;
             
         }
     }

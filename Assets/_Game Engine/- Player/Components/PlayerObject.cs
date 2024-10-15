@@ -8,6 +8,7 @@ namespace GAME
         public PlayerRef Ref;
 
         public int Side;
+        public bool IsReadyForBattle;
     }
 }
 
