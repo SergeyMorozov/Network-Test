@@ -6,6 +6,6 @@ namespace GAME
     [Serializable]
     public class ClientSystemData
     {
-        public List<ClientObject> listObjects;
+        public List<ClientData> Clients;
     }
 }

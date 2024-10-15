@@ -4,8 +4,9 @@ using System.Collections.Generic;
 namespace GAME
 {
     [Serializable]
-    public class HostSystemData
+    public class BattleSystemData
     {
-        public HostData CurrentHost;
+        public List<BattleData> Battles;
+        
     }
 }
