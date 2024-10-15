@@ -15,7 +15,7 @@ MonoBehaviour:
   Name: Wizard Blue
   Icon: {fileID: 0}
   Prefab: {fileID: 894391443935021027, guid: cadee3d88e85e78468976ca15aefd7bd, type: 3}
-  Health: 100
+  Health: 40
   Skills:
   - {fileID: 11400000, guid: 2f70e65f96f25ca419543672e7733aea, type: 2}
   - {fileID: 11400000, guid: a020063f0934d914b84757ba60945a49, type: 2}

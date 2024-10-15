@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -3708611838454199251}
   - component: {fileID: 6142119623553816654}
   - component: {fileID: 8550436825477914604}
+  - component: {fileID: -6795480187054422607}
   m_Layer: 0
   m_Name: Skill System
   m_TagString: Untagged
@@ -110,5 +111,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68a24d20c9e968d47a5def94cc0b6484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-6795480187054422607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8293536525246683491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7624e9ba4d1e49a45bba891ed6ae58e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -18,7 +18,7 @@ namespace  GAME
             PlayerSystem.Events.PlayerDamage?.Invoke(playerTarget, skill.Preset.Value);
             
             SkillData buff = new SkillData();
-            buff.PlayerOwner = playerTarget;
+            buff.PlayerOwner = playerSource;
             buff.Preset = skill.Preset;
             buff.MovesToRemoveBuff = skill.Preset.TimeActive;
             playerTarget.Buffs.Add(buff);

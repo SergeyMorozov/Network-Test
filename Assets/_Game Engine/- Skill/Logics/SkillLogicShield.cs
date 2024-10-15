@@ -7,6 +7,7 @@ namespace  GAME
         private void Awake()
         {
             SkillSystem.Events.SkillActive += SkillActive;
+            BattleSystem.Events.CalculateBuffs += CalculateBuffs;
         }
 
         private void SkillActive(BattleData battle, PlayerObject playerSource, PlayerObject playerTarget, SkillData skill)
@@ -23,6 +24,20 @@ namespace  GAME
             playerSource.Buffs.Add(buff);
             
             BattleSystem.Events.MoveComplete?.Invoke(battle);
+        }
+        
+        private void CalculateBuffs(BattleData battle)
+        {
+            foreach (PlayerObject player in battle.Players)
+            {
+                if(player.Side != battle.MoveSide) continue;
+                
+                foreach (SkillData buff in player.Buffs)
+                {
+                    if(buff.Preset.ID != 2) continue;
+                    buff.MovesToRemoveBuff--;
+                }
+            }
         }
     }
 }
