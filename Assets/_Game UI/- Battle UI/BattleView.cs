@@ -11,6 +11,8 @@ namespace GAME
         public Transform Content;
         public List<BattleViewInfo> PanelInfo;
         public CanvasGroup PanelBlocking;
+        public CanvasGroup PanelWait;
+        public Transform IconWait;
         public Button ButtonExit;
     }
 }
