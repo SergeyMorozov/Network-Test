@@ -15,6 +15,7 @@ namespace  GAME
             
             PlayerSystem.Events.CreatePlayer?.Invoke(PlayerSystem.Settings.PlayerHost);
             PlayerSystem.Data.CurrentPlayer = PlayerSystem.Data.Players[0];
+            PlayerSystem.Data.CurrentPlayer.Side = 1;
             PlayerSystem.Events.PlayerReady?.Invoke(PlayerSystem.Data.CurrentPlayer);
         }
     }

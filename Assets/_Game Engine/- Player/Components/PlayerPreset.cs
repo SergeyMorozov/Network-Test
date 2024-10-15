@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace GAME
@@ -7,6 +8,10 @@ namespace GAME
         public string Name;
         public Sprite Icon;
         public PlayerRef Prefab;
+
+        [Space]
+        public float Health;
+        public List<SkillPreset> Skills;
     }
 }
 

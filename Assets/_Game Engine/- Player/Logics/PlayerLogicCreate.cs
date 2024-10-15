@@ -11,13 +11,14 @@ namespace  GAME
             PlayerSystem.Events.CreatePlayer += CreatePlayer;
         }
 
-        private void CreatePlayer(PlayerPreset playerPreset)
+        private PlayerObject CreatePlayer(PlayerPreset playerPreset)
         {
             PlayerObject player = Tools.AddObject<PlayerObject>(null);
             player.name = playerPreset.Name + " [" + ++_counter + "]";
             player.Preset = playerPreset;
             player.Ref = Tools.AddObject<PlayerRef>(playerPreset.Prefab, player.transform);
             PlayerSystem.Data.Players.Add(player);
+            return player;
         }
     }
 }

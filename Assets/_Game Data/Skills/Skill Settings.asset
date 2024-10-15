@@ -9,13 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59379df4075f30046b3dfd01927bd6c9, type: 3}
-  m_Name: Wizard Blue
+  m_Script: {fileID: 11500000, guid: 8014dde58ca5bc344b953328db296bff, type: 3}
+  m_Name: Skill Settings
   m_EditorClassIdentifier: 
-  Name: Wizard Blue
-  Icon: {fileID: 0}
-  Prefab: {fileID: 894391443935021027, guid: cadee3d88e85e78468976ca15aefd7bd, type: 3}
-  Health: 100
   Skills:
   - {fileID: 11400000, guid: 2f70e65f96f25ca419543672e7733aea, type: 2}
   - {fileID: 11400000, guid: a020063f0934d914b84757ba60945a49, type: 2}

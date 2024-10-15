@@ -8,7 +8,9 @@ namespace GAME
     {
         public BattlePreset Preset;
 
+        public int TurnSide;
         public BattleState State;
+        public LevelObject Level;
         public List<PlayerObject> Players;
     }
 
@@ -16,8 +18,8 @@ namespace GAME
     {
         None = 0,
         WaitEnemy = 1,
-        TurnSide1 = 2,
-        TurnSide2 = 3,
+        Start = 2,
+        Play = 3,
         Finish = 4
     }
 }

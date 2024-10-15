@@ -6,5 +6,6 @@ namespace GAME
     public class LevelSystemEvents
     {
         public Func<LevelPreset, LevelObject> LevelCreate;
+        public Action<LevelObject, PlayerObject> SetPlayer;
     }
 }

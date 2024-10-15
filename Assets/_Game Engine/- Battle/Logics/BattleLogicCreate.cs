@@ -17,10 +17,8 @@ namespace  GAME
             battle.Players = new List<PlayerObject> { player };
 
             LevelPreset levelPreset = Tools.GetRandomObject(LevelSystem.Settings.Levels);
-            LevelObject level = LevelSystem.Events.LevelCreate?.Invoke(levelPreset);
-            
-            player.transform.SetParent(level.Ref.PlayerSide1, false);
-            CameraSystem.Events.SetCameraTarget?.Invoke(level.Ref.CameraSide1);
+            battle.Level = LevelSystem.Events.LevelCreate?.Invoke(levelPreset);
+            LevelSystem.Events.SetPlayer?.Invoke(battle.Level, player);
             
             BattleSystem.Events.SetState?.Invoke(battle, BattleState.WaitEnemy);
         }

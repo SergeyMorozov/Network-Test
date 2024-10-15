@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace  GAME
 {
-    public class LevelLogic : MonoBehaviour
+    public class SkillLogic : MonoBehaviour
     {
         private void Awake()
         {

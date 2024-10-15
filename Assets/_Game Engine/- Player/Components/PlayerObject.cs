@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace GAME
@@ -9,6 +10,8 @@ namespace GAME
 
         public int Side;
         public bool IsReadyForBattle;
+        public float Health;
+        public List<SkillData> Skills;
     }
 }
 

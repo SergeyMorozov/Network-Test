@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace  GAME
 {
-    public class BattleUILogic : MonoBehaviour
+    public class BattleUILogicUpdate : MonoBehaviour
     {
         private BattleView _view;
         private bool _show;
@@ -18,20 +18,14 @@ namespace  GAME
         private void Awake()
         {
             _view = BattleCanvas.Instance.View;
-            _view.gameObject.SetActive(false);
             
-            _view.ButtonExit.onClick.AddListener(BattleExit);
             _viewSkill = InitList(_view.SkillPrefab);
             _viewSkillInfo = InitList(_view.PanelInfo[0].SkillPrefab);
             Tools.RemoveObjects(_view.PanelInfo[1].Content);
             
             _view.PanelBlocking.SetActive(false);
-            _view.PanelWait.SetActive(false);
             _view.PanelInfo[0].gameObject.SetActive(false);
             _view.PanelInfo[1].gameObject.SetActive(false);
-            
-            BattleCanvas.Instance.Show += Show;
-            BattleCanvas.Instance.Hide += Hide;
             
             BattleSystem.Events.StateChanged += StateChanged;
         }
@@ -42,18 +36,28 @@ namespace  GAME
 
             _battle = battle;
             
-            if(to == BattleState.WaitEnemy) Show();
+            switch (to)
+            {
+                case BattleState.Start:
+                    Show();
+                    break;
+
+                case BattleState.Finish:
+                    Hide();
+                    break;
+
+            }
         }
 
         private void Show()
         {
             if(_show) return;
             _show = true;
-            _view.gameObject.SetActive(true);
-            
-            _view.PanelWait.SetActive(true);
-            _view.IconWait.transform.DOLocalRotate(new Vector3(0, 0, -360), 1, RotateMode.FastBeyond360)
-                .SetLoops(-1).SetEase(Ease.Linear);
+
+            for (int i = 0; i < _battle.Players.Count; i++)
+            {
+                InitPanelInfo(i);
+            }
         }
 
         private void Hide()
@@ -61,12 +65,6 @@ namespace  GAME
             if(!_show) return;
             _show = false;
 
-            _view.gameObject.SetActive(false);
-        }
-
-        private void BattleExit()
-        {
-            BattleSystem.Events.BattleExit?.Invoke(_battle);
         }
 
         private BattleViewSkill InitList(BattleViewSkill view)
@@ -77,5 +75,13 @@ namespace  GAME
             Tools.RemoveObjects(content);
             return view;
         }
+        
+        private void InitPanelInfo(int index)
+        {
+            BattleViewInfo view = _view.PanelInfo[index];
+            view.gameObject.SetActive(true);
+            view.Player = _battle.Players[index];
+        }
+        
     }
 }

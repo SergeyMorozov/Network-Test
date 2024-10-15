@@ -11,6 +11,8 @@ namespace GAME
         public TextMeshProUGUI TextHealth;
         public BattleViewSkill SkillPrefab;
         public Transform Content;
+
+        public PlayerObject Player;
     }
 }
 

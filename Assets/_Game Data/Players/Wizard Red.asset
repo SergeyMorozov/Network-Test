@@ -15,3 +15,10 @@ MonoBehaviour:
   Name: Wizard Red
   Icon: {fileID: 0}
   Prefab: {fileID: 8484442287891249534, guid: c0113acbe2d691f4f9f1cc272f368227, type: 3}
+  Health: 100
+  Skills:
+  - {fileID: 11400000, guid: 2f70e65f96f25ca419543672e7733aea, type: 2}
+  - {fileID: 11400000, guid: a020063f0934d914b84757ba60945a49, type: 2}
+  - {fileID: 11400000, guid: f71c99f105af6364988e341572f33733, type: 2}
+  - {fileID: 11400000, guid: 9f2f41da4a527fd44bc4a05fa7641e45, type: 2}
+  - {fileID: 11400000, guid: 8742fca41af11634fbc55d7cce6fb457, type: 2}

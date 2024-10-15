@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +13,7 @@ namespace GAME
         public CanvasGroup PanelWait;
         public Transform IconWait;
         public Button ButtonExit;
+        public Button ButtonCreatePlayer;
     }
 }
 

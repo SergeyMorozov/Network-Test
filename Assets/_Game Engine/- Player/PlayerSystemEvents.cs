@@ -5,7 +5,7 @@ namespace GAME
     [Serializable]
     public class PlayerSystemEvents
     {
-        public Action<PlayerPreset> CreatePlayer;
+        public Func<PlayerPreset, PlayerObject> CreatePlayer;
         public Action<PlayerObject> PlayerReady;
     }
 }
