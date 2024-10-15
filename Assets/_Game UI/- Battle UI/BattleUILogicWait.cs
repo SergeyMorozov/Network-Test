@@ -18,6 +18,7 @@ namespace  GAME
             
             _view.ButtonExit.onClick.AddListener(BattleExit);
             _view.ButtonCreatePlayer.onClick.AddListener(CreateLocalPlayer);
+            _view.ButtonNext.onClick.AddListener(MoveNext);
             
             BattleCanvas.Instance.Show += Show;
             BattleCanvas.Instance.Hide += Hide;
@@ -84,5 +85,9 @@ namespace  GAME
             _view.ButtonCreatePlayer.SetActive(false);
         }
 
+        private void MoveNext()
+        {
+            BattleSystem.Events.MoveComplete?.Invoke(_battle);
+        }
     }
 }

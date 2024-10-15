@@ -14,6 +14,7 @@ namespace GAME
         public Transform IconWait;
         public Button ButtonExit;
         public Button ButtonCreatePlayer;
+        public Button ButtonNext;
     }
 }
 

@@ -9,6 +9,7 @@ namespace GAME
 
         public bool IsActive;
         public int MovesToRecovery;
+        public int MovesToRemoveBuff;
     }
 }
 

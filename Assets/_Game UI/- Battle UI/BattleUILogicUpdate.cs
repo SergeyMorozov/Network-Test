@@ -90,12 +90,18 @@ namespace  GAME
         {
             if(!_show) return;
 
-            // _view.PanelBlocking.SetActive(_battle.MoveSide != _battle.Players[0].Side);
+            _view.PanelBlocking.SetActive(_battle.MoveSide != _battle.Players[0].Side);
             
             foreach (BattleViewSkill viewSkill in _listSkills)
             {
+                viewSkill.Button.interactable = viewSkill.Skill.IsActive;
+                viewSkill.Text.text = viewSkill.Skill.MovesToRecovery > 0
+                    ? viewSkill.Skill.MovesToRecovery.ToString()
+                    : ""; 
+                
                 if(viewSkill.Skill.Preset.TimeRestore == 0) continue;
-                viewSkill.Progress.fillAmount = viewSkill.Skill.MovesToRecovery / viewSkill.Skill.Preset.TimeRestore;
+                viewSkill.Progress.fillAmount = Mathf.Lerp(viewSkill.Progress.fillAmount,
+                    viewSkill.Skill.MovesToRecovery / (float)viewSkill.Skill.Preset.TimeRestore, Time.deltaTime * 5);
             }
         }
     }

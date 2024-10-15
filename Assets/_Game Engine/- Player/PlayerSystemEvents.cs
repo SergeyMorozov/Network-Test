@@ -7,6 +7,7 @@ namespace GAME
     {
         public Func<PlayerPreset, PlayerObject> CreatePlayer;
         public Action<PlayerObject> PlayerReady;
+        public Action<PlayerObject, float> PlayerHealthChange;
         public Action<PlayerObject, float> PlayerDamage;
         public Action<PlayerObject> PlayerChanged;
         public Action<PlayerObject> PlayerDead;

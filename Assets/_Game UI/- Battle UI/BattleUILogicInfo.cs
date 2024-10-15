@@ -9,10 +9,7 @@ namespace  GAME
     {
         private BattleView _view;
         private bool _show;
-
         private BattleViewSkill _viewSkillInfo;
-        private List<BattleViewSkill> _listSkills;
-
         private BattleData _battle;
         
         private void Awake()
@@ -89,6 +86,24 @@ namespace  GAME
             
             foreach (BattleViewInfo viewInfo in _view.PanelInfo)
             {
+                if (viewInfo.Buffs.Count != viewInfo.Player.Buffs.Count)
+                {
+                    viewInfo.Buffs.Clear();
+                    Tools.RemoveObjects(viewInfo.Content);
+                    foreach (SkillData buff in viewInfo.Player.Buffs)
+                    {
+                        BattleViewSkill viewBuff = Tools.AddUI<BattleViewSkill>(_viewSkillInfo, viewInfo.Content);
+                        viewBuff.Skill = buff;
+                        viewBuff.Icon.sprite = buff.Preset.Icon;
+                        viewInfo.Buffs.Add(viewBuff);
+                    }
+                }
+
+                foreach (BattleViewSkill viewBuff in viewInfo.Buffs)
+                {
+                    viewBuff.Text.text = viewBuff.Skill.MovesToRemoveBuff.ToString();
+                }
+                
                 viewInfo.TextHealth.text = viewInfo.Player.Health.ToString();
                 viewInfo.SliderHealth.value = viewInfo.Player.Health / viewInfo.Player.Preset.Health;
             }

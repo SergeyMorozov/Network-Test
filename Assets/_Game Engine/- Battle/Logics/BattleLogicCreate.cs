@@ -15,6 +15,7 @@ namespace  GAME
             BattleData battle = new BattleData();
             BattleSystem.Data.Battles.Add(battle);
             battle.Players = new List<PlayerObject> { player };
+            player.Health = 50;
 
             LevelPreset levelPreset = Tools.GetRandomObject(LevelSystem.Settings.Levels);
             battle.Level = LevelSystem.Events.LevelCreate?.Invoke(levelPreset);

@@ -12,6 +12,7 @@ namespace GAME
         public BattleViewSkill SkillPrefab;
         public Transform Content;
 
+        public List<BattleViewSkill> Buffs;
         public PlayerObject Player;
     }
 }

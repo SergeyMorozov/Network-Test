@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace  GAME
@@ -11,7 +12,14 @@ namespace  GAME
 
         private void MoveComplete(BattleData battle)
         {
-            // battle.MoveSide = battle.MoveSide == 1 ? 2 : 1;
+            StartCoroutine(MoveNext(battle));
+        }
+
+        IEnumerator MoveNext(BattleData battle)
+        {
+            yield return new WaitForSeconds(0.5f);
+            
+            battle.MoveSide = battle.MoveSide == 1 ? 2 : 1;
             BattleSystem.Events.MoveNext?.Invoke(battle);
         }
     }

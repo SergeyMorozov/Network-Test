@@ -24,7 +24,7 @@ namespace  GAME
             player.Skills = new List<SkillData>();
             foreach (SkillPreset skillPreset in playerPreset.Skills)
             {
-                SkillData skill = new SkillData { Preset = skillPreset };
+                SkillData skill = new SkillData { Preset = skillPreset, IsActive = true };
                 player.Skills.Add(skill);
             }
             
