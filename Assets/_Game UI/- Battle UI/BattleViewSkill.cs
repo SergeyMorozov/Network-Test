@@ -11,6 +11,8 @@ namespace GAME
         public TextMeshProUGUI Text;
         public Image Progress;
         public Button Button;
+
+        public SkillData Skill;
     }
 }
 

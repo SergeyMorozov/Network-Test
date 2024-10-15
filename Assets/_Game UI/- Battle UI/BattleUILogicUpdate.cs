@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
@@ -10,7 +11,6 @@ namespace  GAME
         private bool _show;
 
         private BattleViewSkill _viewSkill;
-        private BattleViewSkill _viewSkillInfo;
         private List<BattleViewSkill> _listSkills;
 
         private BattleData _battle;
@@ -20,12 +20,9 @@ namespace  GAME
             _view = BattleCanvas.Instance.View;
             
             _viewSkill = InitList(_view.SkillPrefab);
-            _viewSkillInfo = InitList(_view.PanelInfo[0].SkillPrefab);
-            Tools.RemoveObjects(_view.PanelInfo[1].Content);
-            
+            _listSkills = new List<BattleViewSkill>();
+            _view.Content.SetActive(false);
             _view.PanelBlocking.SetActive(false);
-            _view.PanelInfo[0].gameObject.SetActive(false);
-            _view.PanelInfo[1].gameObject.SetActive(false);
             
             BattleSystem.Events.StateChanged += StateChanged;
         }
@@ -54,9 +51,16 @@ namespace  GAME
             if(_show) return;
             _show = true;
 
-            for (int i = 0; i < _battle.Players.Count; i++)
+            _view.Content.SetActive(true);
+            Tools.RemoveObjects(_view.Content);
+            foreach (SkillData skill in PlayerSystem.Data.CurrentPlayer.Skills)
             {
-                InitPanelInfo(i);
+                BattleViewSkill viewSkill = Tools.AddUI<BattleViewSkill>(_viewSkill, _view.Content);
+                viewSkill.Skill = skill;
+                viewSkill.Icon.sprite = skill.Preset.Icon;
+                viewSkill.Progress.fillAmount = 0;
+                viewSkill.Button.onClick.AddListener(delegate { SelectSkill(skill); });
+                _listSkills.Add(viewSkill);
             }
         }
 
@@ -76,12 +80,21 @@ namespace  GAME
             return view;
         }
         
-        private void InitPanelInfo(int index)
+        private void SelectSkill(SkillData skill)
         {
-            BattleViewInfo view = _view.PanelInfo[index];
-            view.gameObject.SetActive(true);
-            view.Player = _battle.Players[index];
+            Debug.Log("SelectSkill " + skill.Preset.Name);
+            
+            SkillSystem.Events.SkillActive?.Invoke(skill);
         }
-        
+
+        private void Update()
+        {
+            if(!_show) return;
+            
+            foreach (BattleViewSkill viewSkill in _listSkills)
+            {
+                viewSkill.Progress.fillAmount = viewSkill.Skill.MovesToRecovery / viewSkill.Skill.Preset.TimeRestore;
+            }
+        }
     }
 }
