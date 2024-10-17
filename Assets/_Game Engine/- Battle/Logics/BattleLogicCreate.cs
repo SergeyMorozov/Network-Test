@@ -13,6 +13,7 @@ namespace  GAME
         private void BattleCreate(PlayerObject player, int levelID)
         {
             BattleData battle = new BattleData();
+            BattleSystem.Data.CurrentBattle = battle;
             BattleSystem.Data.Battles.Add(battle);
             battle.Players = new List<PlayerObject> { player };
 

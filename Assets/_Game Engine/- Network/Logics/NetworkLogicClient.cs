@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace  GAME
 {
-    public class ClientLogic : MonoBehaviour
+    public class NetworkLogicClient : MonoBehaviour
     {
         private void Awake()
         {
-            ClientSystem.Events.StartClient += StartClient;
+            NetworkSystem.Events.StartClient += StartClient;
         }
 
         private void StartClient(string hostName)

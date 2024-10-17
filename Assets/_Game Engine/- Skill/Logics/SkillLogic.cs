@@ -7,7 +7,6 @@ namespace GAME
         private void Awake()
         {
             BattleSystem.Events.MoveReady += MoveReady;
-            SkillSystem.Events.SkillActive += SkillSendToNet;
         }
 
         private void MoveReady(BattleData battle)
@@ -36,12 +35,6 @@ namespace GAME
                     i--;
                 }
             }
-        }
-        
-        private void SkillSendToNet(BattleData battle, PlayerObject playerSource, PlayerObject playerTarget, SkillData skill)
-        {
-            NetCommand command = new NetCommand { Name = nameof(SkillData), ID = skill.Preset.ID };
-            NetworkSystem.Events.SendCommand?.Invoke(command);
         }
     }
 }

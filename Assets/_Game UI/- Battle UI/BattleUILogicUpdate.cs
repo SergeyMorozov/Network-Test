@@ -64,6 +64,8 @@ namespace  GAME
                 viewSkill.Button.onClick.AddListener(delegate { SelectSkill(skill); });
                 _listSkills.Add(viewSkill);
             }
+            
+            _view.PanelBlocking.SetActive(_battle.MoveSide != PlayerSystem.Data.CurrentPlayer.Side);
         }
 
         private void Hide()
@@ -84,18 +86,24 @@ namespace  GAME
         
         private void SelectSkill(SkillData skill)
         {
-            Debug.Log("SelectSkill " + skill.Preset.Name);
-            SkillSystem.Events.SkillActive?.Invoke(_battle, _battle.PlayerSource, _battle.PlayerTarget, skill);
+            _view.PanelBlocking.SetActive(true);
+            
+            Debug.Log("Button SelectSkill " + skill.Preset.Name);
+            
+            NetCommand command = new NetCommand { Name = nameof(SkillData), ID = skill.Preset.ID };
+            NetworkSystem.Events.SendCommand?.Invoke(command);
+            
+            // SkillSystem.Events.SkillActive?.Invoke(_battle, _battle.PlayerSource, _battle.PlayerTarget, skill);
         }
         
         private void MoveComplete(BattleData battle)
         {
-            if(_battle.MoveSide == _battle.Players[0].Side) _view.PanelBlocking.SetActive(true);
+            if(_battle.MoveSide == PlayerSystem.Data.CurrentPlayer.Side) _view.PanelBlocking.SetActive(true);
         }
 
         private void MoveReady(BattleData battle)
         {
-            if(_battle.MoveSide == _battle.Players[0].Side) _view.PanelBlocking.SetActive(false);
+            if(_battle.MoveSide == PlayerSystem.Data.CurrentPlayer.Side) _view.PanelBlocking.SetActive(false);
         }
 
         private void Update()
