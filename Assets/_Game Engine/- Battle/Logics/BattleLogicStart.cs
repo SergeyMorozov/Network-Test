@@ -26,11 +26,11 @@ namespace GAME
 
                 if (battle.State == BattleState.Start)
                 {
-                    if (NetworkSystem.Data.ConnectMode == ConnectType.Host)
+                    /*if (NetworkSystem.Data.ConnectMode == ConnectType.Host)
                     {
                         NetCommand command = new NetCommand { Name = "Battle", ID = battle.Level.Preset.ID };
                         NetworkSystem.Events.SendCommand?.Invoke(command);
-                    }
+                    }*/
 
                     BattleSystem.Events.SetState?.Invoke(battle, BattleState.Play);
                 }

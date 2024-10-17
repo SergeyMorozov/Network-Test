@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using DG.Tweening;
 using UnityEngine;
 
 namespace  GAME
@@ -91,10 +89,10 @@ namespace  GAME
             
             Debug.Log("Button SelectSkill " + skill.Preset.Name);
             
-            NetCommand command = new NetCommand { Name = nameof(SkillData), ID = skill.Preset.ID };
-            NetworkSystem.Events.SendCommand?.Invoke(command);
+            // NetCommand command = new NetCommand { Name = nameof(SkillData), ID = skill.Preset.ID };
+            // NetworkSystem.Events.SendCommand?.Invoke(command);
             
-            // SkillSystem.Events.SkillActive?.Invoke(_battle, _battle.PlayerSource, _battle.PlayerTarget, skill);
+            SkillSystem.Events.SkillActive?.Invoke(_battle, _battle.PlayerSource, _battle.PlayerTarget, skill);
         }
         
         private void MoveComplete(BattleData battle)

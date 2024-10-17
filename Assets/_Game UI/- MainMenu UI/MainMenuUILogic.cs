@@ -11,8 +11,7 @@ namespace  GAME
         {
             _view = MainMenuCanvas.Instance.View;
             _view.gameObject.SetActive(false);
-            _view.ButtonHost.Button.onClick.AddListener(MenuHost);
-            _view.ButtonClient.Button.onClick.AddListener(MenuClient);
+            _view.ButtonHost.Button.onClick.AddListener(MenuStart);
 
             MainMenuCanvas.Instance.Show += Show;
             MainMenuCanvas.Instance.Hide += Hide;
@@ -34,8 +33,6 @@ namespace  GAME
             _show = true;
             _view.gameObject.SetActive(true);
             GameSystem.Data.GamePause = true;
-
-            _view.InputHostName.text = PlayerPrefs.GetString("host_name", "");
         }
 
         private void Hide()
@@ -47,23 +44,11 @@ namespace  GAME
             GameSystem.Data.GamePause = false;
         }
 
-        private void MenuHost()
+        private void MenuStart()
         {
-            if(_view.InputHostName.text == "") return;
-
-            string hostName = _view.InputHostName.text;
-            NetworkSystem.Events.StartHost?.Invoke(hostName);
             GameSystem.Events.GameActionWithFade?.Invoke(Hide, GameSystem.Events.GameStart);
         }
 
-        private void MenuClient()
-        {
-            if(_view.InputHostName.text == "") return;
-
-            string hostName = _view.InputHostName.text;
-            NetworkSystem.Events.StartClient?.Invoke(hostName);
-            GameSystem.Events.GameActionWithFade?.Invoke(Hide, GameSystem.Events.GameStart);
-        }
     }
 }
 

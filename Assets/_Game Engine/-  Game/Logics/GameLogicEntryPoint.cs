@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-//using YG;
 using Random = UnityEngine.Random;
 
 namespace  GAME

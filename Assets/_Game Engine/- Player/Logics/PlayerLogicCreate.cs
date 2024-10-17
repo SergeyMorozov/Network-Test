@@ -9,14 +9,21 @@ namespace  GAME
         
         private void Awake()
         {
+            GameSystem.Events.GameStart += GameStart;
+            
             PlayerSystem.Events.CreatePlayer += CreatePlayer;
             PlayerSystem.Events.CreateLocalPlayer += CreateLocalPlayer;
-            BattleSystem.Events.StateChanged += StateChanged;
         }
 
-        private void StateChanged(BattleData arg1, BattleState arg2, BattleState arg3)
+        private void GameStart()
         {
-            
+            PlayerObject player1 = CreatePlayer(PlayerSystem.Settings.PlayerHost);
+            player1.Side = 1;
+            player1.IsReadyForBattle = true;
+            PlayerSystem.Data.CurrentPlayer = player1;
+            PlayerSystem.Events.PlayerReady?.Invoke(player1);
+
+            PlayerSystem.Events.CreateLocalPlayer?.Invoke();
         }
 
         private PlayerObject CreatePlayer(PlayerPreset playerPreset)
