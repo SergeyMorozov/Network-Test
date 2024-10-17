@@ -77,6 +77,7 @@ namespace  GAME
             }
 
             Debug.Log("Connected as: " + NetworkSystem.Data.UserName);
+            Debug.Log("Host name: " + NetworkSystem.Data.HostName);
             
             _chatClient.SetOnlineStatus(ChatUserStatus.Online); // You can set your online state (without a mesage).
             
@@ -89,7 +90,7 @@ namespace  GAME
 
         public void OnGetMessages(string channelName, string[] senders, object[] messages)
         {
-            Debug.Log("Get ===> [" + senders[0] + "] " + messages[0]);
+            Debug.Log("Get <=== [" + senders[0] + "] " + messages[0]);
             NetworkSystem.Events.OnGetCommand?.Invoke(senders[0], messages[0].ToString());
         }
 

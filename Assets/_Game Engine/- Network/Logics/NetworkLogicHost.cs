@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace  GAME
 {
-    public class HostLogic : MonoBehaviour
+    public class NetworkLogicHost : MonoBehaviour
     {
         private void Awake()
         {
-            HostSystem.Events.StartHost += StartHost;
+            NetworkSystem.Events.StartHost += StartHost;
         }
 
         private void StartHost(string hostName)

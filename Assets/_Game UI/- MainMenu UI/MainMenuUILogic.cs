@@ -52,7 +52,7 @@ namespace  GAME
             if(_view.InputHostName.text == "") return;
 
             string hostName = _view.InputHostName.text;
-            HostSystem.Events.StartHost?.Invoke(hostName);
+            NetworkSystem.Events.StartHost?.Invoke(hostName);
             GameSystem.Events.GameActionWithFade?.Invoke(Hide, GameSystem.Events.GameStart);
         }
 

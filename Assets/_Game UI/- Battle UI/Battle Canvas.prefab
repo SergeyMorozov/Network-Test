@@ -692,7 +692,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1849943478975033677
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5917,5 +5917,4 @@ MonoBehaviour:
   PanelWait: {fileID: 4509220539289206431}
   IconWait: {fileID: 4317263266296345394}
   ButtonExit: {fileID: 811009640456128292}
-  ButtonCreatePlayer: {fileID: 1600714329697527005}
   ButtonNext: {fileID: 7974564348071286318}

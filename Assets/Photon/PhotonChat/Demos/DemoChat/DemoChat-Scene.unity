@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 192561278}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: OpenDashboard
         m_Mode: 1
@@ -708,77 +708,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162519640}
   m_CullTransparentMesh: 0
---- !u!1 &192561276
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 192561277}
-  - component: {fileID: 192561278}
-  m_Layer: 0
-  m_Name: Scripts
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &192561277
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 192561276}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &192561278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 192561276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bb11ae95cb0ac54ebc906b8d4e7cc25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ChannelsToJoinOnConnect:
-  - 111
-  HistoryLengthToFetch: 0
-  UserName: 1
-  chatAppSettings:
-    AppIdChat: cd995e0e-9b47-4a87-9fd4-9e4bdb90430a
-    AppVersion: 
-    FixedRegion: 
-    Server: 
-    Port: 0
-    ProxyServer: 
-    Protocol: 1
-    EnableProtocolFallback: 1
-    NetworkLogging: 1
-  missingAppIdErrorPanel: {fileID: 1860384066}
-  ConnectingLabel: {fileID: 1323013538}
-  ChatPanel: {fileID: 1507568401}
-  UserIdFormPanel: {fileID: 814826291}
-  InputFieldChat: {fileID: 1989416850}
-  CurrentChannelText: {fileID: 1641022483}
-  ChannelToggleToInstantiate: {fileID: 342400385}
-  FriendListUiItemtoInstantiate: {fileID: 328181930}
-  ShowState: 1
-  Title: {fileID: 938244445}
-  StateText: {fileID: 2126670842}
-  UserIdText: {fileID: 162519642}
-  TestLength: 2048
 --- !u!1 &193452638
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,7 +934,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 192561278}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Photon.Chat.Demo.TestNet, Assembly-CSharp
         m_MethodName: Connect
         m_Mode: 1
@@ -1142,10 +1071,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '<Color=Red>Please setup the Chat AppId.
-
-    Open the setup panel: Window,
-    Photon Chat, Setup.</Color>'
+  m_Text: 
 --- !u!222 &241317251
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3431,7 +3357,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 192561278}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: PostHelpToCurrentChannel
         m_Mode: 1
@@ -4989,7 +4915,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 192561278}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: OnClickSend
         m_Mode: 1
@@ -6327,7 +6253,7 @@ MonoBehaviour:
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 192561278}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: OnEnterSend
         m_Mode: 1
@@ -6536,12 +6462,12 @@ GameObject:
   - component: {fileID: 2080798635}
   - component: {fileID: 2080798634}
   m_Layer: 0
-  m_Name: Scripts (1)
+  m_Name: Scripts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2080798634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6800,7 +6726,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1079401851}
-  - {fileID: 192561277}
   - {fileID: 2080798636}
   - {fileID: 770857990}
   - {fileID: 1809679013}

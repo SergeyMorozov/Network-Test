@@ -13,7 +13,7 @@ namespace GAME
         public CanvasGroup PanelWait;
         public Transform IconWait;
         public Button ButtonExit;
-        public Button ButtonCreatePlayer;
+        // public Button ButtonCreatePlayer;
         public Button ButtonNext;
     }
 }

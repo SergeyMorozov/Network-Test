@@ -17,7 +17,7 @@ namespace  GAME
             _view.gameObject.SetActive(false);
             
             _view.ButtonExit.onClick.AddListener(BattleExit);
-            _view.ButtonCreatePlayer.onClick.AddListener(CreateLocalPlayer);
+            // _view.ButtonCreatePlayer.onClick.AddListener(CreateLocalPlayer);
             _view.ButtonNext.onClick.AddListener(MoveNext);
             
             BattleCanvas.Instance.Show += Show;
@@ -40,7 +40,7 @@ namespace  GAME
 
                 case BattleState.Start:
                     _view.PanelWait.DOFade(0, 0.2f).OnComplete(() => { _view.PanelWait.SetActive(false); });
-                    _view.ButtonCreatePlayer.SetActive(false);
+                    // _view.ButtonCreatePlayer.SetActive(false);
                     break;
 
                 case BattleState.Finish:
@@ -61,7 +61,7 @@ namespace  GAME
             _view.IconWait.transform.DOLocalRotate(new Vector3(0, 0, -360), 1, RotateMode.FastBeyond360)
                 .SetLoops(-1).SetEase(Ease.Linear);
             
-            _view.ButtonCreatePlayer.SetActive(true);
+            // _view.ButtonCreatePlayer.SetActive(true);
         }
 
         private void Hide()
@@ -81,7 +81,7 @@ namespace  GAME
         {
             PlayerSystem.Events.CreateLocalPlayer?.Invoke();
             
-            _view.ButtonCreatePlayer.SetActive(false);
+            // _view.ButtonCreatePlayer.SetActive(false);
         }
 
         private void MoveNext()
