@@ -19,6 +19,7 @@ namespace  GAME
             _view.PanelDefeat.SetActive(false);
             
             _view.ButtonExit.onClick.AddListener(BattleExit);
+            _view.ButtonExit.gameObject.SetActive(false);
             // _view.ButtonCreatePlayer.onClick.AddListener(CreateLocalPlayer);
             _view.ButtonNext.onClick.AddListener(MoveNext);
             
@@ -38,11 +39,13 @@ namespace  GAME
             {
                 case BattleState.WaitEnemy:
                     Show();
+                    _view.PanelVictory.SetActive(false);
+                    _view.PanelDefeat.SetActive(false);
                     break;
 
                 case BattleState.Start:
                     _view.PanelWait.DOFade(0, 0.2f).OnComplete(() => { _view.PanelWait.SetActive(false); });
-                    // _view.ButtonCreatePlayer.SetActive(false);
+                    _view.ButtonExit.gameObject.SetActive(true);
                     break;
 
                 case BattleState.Finish:
@@ -78,7 +81,8 @@ namespace  GAME
 
         private void BattleExit()
         {
-            BattleSystem.Events.BattleExit?.Invoke(_battle);
+            NetCommand command = new NetCommand { Name = "BattleClose" };
+            NetworkSystem.Events.SendCommand?.Invoke(command);
         }
 
         private void CreateLocalPlayer()

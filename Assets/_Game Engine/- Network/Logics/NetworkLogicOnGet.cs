@@ -46,6 +46,11 @@ namespace  GAME
                 BattleSystem.Events.BattleCreate?.Invoke(PlayerSystem.Data.CurrentPlayer, command.ID);
             }
 
+            if (command.Name == "BattleClose")
+            {
+                BattleSystem.Events.BattleExit?.Invoke(BattleSystem.Data.CurrentBattle);
+            }
+
             if (command.Name == nameof(SkillData))
             {
                 _battle = BattleSystem.Data.CurrentBattle;

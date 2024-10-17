@@ -14,6 +14,8 @@ namespace  GAME
 
         private void PlayerHealthChange(PlayerObject player, float value)
         {
+            if(player.Health <= 0) return;
+            
             player.Health += value;
             
             if (player.Health > 0)

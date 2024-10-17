@@ -3,12 +3,11 @@ using UnityEngine;
 
 namespace  GAME
 {
-    public class BattleLogicMove : MonoBehaviour
+    public class BattleLogicPlay : MonoBehaviour
     {
         private void Awake()
         {
             BattleSystem.Events.MoveComplete += MoveComplete;
-            PlayerSystem.Events.PlayerDead += PlayerDead;
         }
 
         private void MoveComplete(BattleData battle)
@@ -27,11 +26,7 @@ namespace  GAME
             BattleSystem.Events.MoveReady?.Invoke(battle);
         }
         
-        private void PlayerDead(PlayerObject player)
-        {
-            BattleSystem.Data.CurrentBattle.WinSide = player.Side == 1 ? 2 : 1;
-            BattleSystem.Events.SetState?.Invoke(BattleSystem.Data.CurrentBattle, BattleState.Finish);
-        }
+        
 
     }
 }

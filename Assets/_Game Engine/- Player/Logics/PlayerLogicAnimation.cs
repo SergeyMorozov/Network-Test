@@ -14,6 +14,7 @@ namespace  GAME
             PlayerSystem.Events.AnimFireball += AnimFireball;
             
             PlayerSystem.Events.PlayerDead += PlayerDead;
+            PlayerSystem.Events.PlayerClear += PlayerClear;
         }
 
         private void SkillActive(BattleData battle, PlayerObject playerSource, PlayerObject playerTarget, SkillData skill)
@@ -40,7 +41,7 @@ namespace  GAME
 
                 case 5:
                     playerSource.Ref.Animator.SetTrigger("Clear");
-                    GameObject fx = Tools.AddObject(skill.Preset.FX[0], playerSource.transform);
+                    GameObject fx = Tools.AddObject(skill.Preset.FX[0], playerSource.transform.parent);
                     Destroy(fx, 3);
                     break;
             }
@@ -54,26 +55,31 @@ namespace  GAME
         private void AnimShield(PlayerObject player)
         {
             SkillData skill = player.GetBuff(2);
-            skill.FX = Tools.AddObject(skill.Preset.FX[0], player.transform);
+            skill.FX = Tools.AddObject(skill.Preset.FX[0], player.transform.parent);
         }
 
         private void AnimHealth(PlayerObject player)
         {
             SkillData skill = player.GetBuff(3);
-            skill.FX = Tools.AddObject(skill.Preset.FX[0], player.transform);
+            skill.FX = Tools.AddObject(skill.Preset.FX[0], player.transform.parent);
         }
 
         private void AnimFireball(PlayerObject player)
         {
             SkillData skill = player.PlayerTarget.GetBuff(4);
-            skill.FX = Tools.AddObject(skill.Preset.FX[1], player.PlayerTarget.transform);
-            GameObject fx = Tools.AddObject(skill.Preset.FX[0], player.PlayerTarget.transform);
+            skill.FX = Tools.AddObject(skill.Preset.FX[1], player.PlayerTarget.transform.parent);
+            GameObject fx = Tools.AddObject(skill.Preset.FX[0], player.PlayerTarget.transform.parent);
             Destroy(fx, 3);
         }
 
         private void PlayerDead(PlayerObject player)
         {
             player.Ref.Animator.SetTrigger("Die");
+        }
+
+        private void PlayerClear(PlayerObject player)
+        {
+            player.Ref.Animator.SetTrigger("Idle");
         }
 
     }

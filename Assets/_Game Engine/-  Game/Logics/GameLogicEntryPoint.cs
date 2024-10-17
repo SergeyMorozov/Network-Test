@@ -8,7 +8,7 @@ namespace  GAME
     {
         private void Awake()
         {
-            Random.InitState(2);
+            // Random.InitState(2);
             
             Application.targetFrameRate = 1000;
             GameSystem.Data.GamePause = true;

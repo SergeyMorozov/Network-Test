@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5305291564455903971}
   - component: {fileID: 1373249755709860346}
   - component: {fileID: -6129301292102576004}
+  - component: {fileID: 1146486084986475374}
   m_Layer: 0
   m_Name: Battle System
   m_TagString: Untagged
@@ -51,6 +52,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 9e533fb1fd046d3408ed15e2ee6fb744, type: 2}
   data:
+    CurrentBattle:
+      Preset: {fileID: 0}
+      MoveSide: 0
+      WinSide: 0
+      State: 0
+      Level: {fileID: 0}
+      Players: []
     Battles: []
 --- !u!114 &2299145690927520178
 MonoBehaviour:
@@ -110,5 +118,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0674de44210e5714e8eb0a0309416149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1146486084986475374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6067593183582288488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb33502aa8ae9d4a858c33e3c1846ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

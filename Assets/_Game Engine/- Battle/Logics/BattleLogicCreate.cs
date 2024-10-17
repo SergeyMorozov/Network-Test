@@ -5,6 +5,8 @@ namespace  GAME
 {
     public class BattleLogicCreate : MonoBehaviour
     {
+        private int _counter;
+        
         private void Awake()
         {
             BattleSystem.Events.BattleCreate += BattleCreate;
@@ -17,9 +19,13 @@ namespace  GAME
             BattleSystem.Data.Battles.Add(battle);
             battle.Players = new List<PlayerObject> { player };
 
+            _counter++;
+            if (_counter > LevelSystem.Settings.Levels.Count) _counter = 1;
+
             LevelPreset levelPreset = levelID > 0
                 ? LevelSystem.Settings.GetLevelByID(levelID)
-                : Tools.GetRandomObject(LevelSystem.Settings.Levels);
+                : LevelSystem.Settings.GetLevelByID(_counter);
+            
             battle.Level = LevelSystem.Events.LevelCreate?.Invoke(levelPreset);
             LevelSystem.Events.SetPlayer?.Invoke(battle.Level, player);
 

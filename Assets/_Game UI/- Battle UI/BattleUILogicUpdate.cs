@@ -54,6 +54,7 @@ namespace  GAME
             _show = true;
 
             _view.Content.SetActive(true);
+            _listSkills.Clear();
             Tools.RemoveObjects(_view.Content);
             foreach (SkillData skill in PlayerSystem.Data.CurrentPlayer.Skills)
             {
