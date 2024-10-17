@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1562878621307045943}
   - component: {fileID: 1687658183679611653}
   - component: {fileID: 2289278963128046005}
+  - component: {fileID: 2142363053267918596}
+  - component: {fileID: -5783071626315634548}
   m_Layer: 0
   m_Name: Network System
   m_TagString: Untagged
@@ -49,7 +51,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: f5538637b635e3240b39710d961d0927, type: 2}
   data:
-    ConnectType: 0
+    ConnectMode: 0
+    HostName: 
+    UserName: 
 --- !u!114 &2289278963128046005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,6 +64,40 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c0a232401efdaf428a928d8715c3d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chatAppSettings:
+    AppIdChat: 
+    AppVersion: 
+    FixedRegion: 
+    Server: 
+    Port: 0
+    ProxyServer: 
+    Protocol: 1
+    EnableProtocolFallback: 1
+    NetworkLogging: 1
+--- !u!114 &2142363053267918596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835635662411734097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36ba164a4686224aa3f207d9dffae60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5783071626315634548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835635662411734097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6803bcf657846d341ada9ca6152bc3d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &4671110162638679837

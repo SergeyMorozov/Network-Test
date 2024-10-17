@@ -40,6 +40,7 @@ namespace  GAME
 
                 case BattleState.Start:
                     _view.PanelWait.DOFade(0, 0.2f).OnComplete(() => { _view.PanelWait.SetActive(false); });
+                    _view.ButtonCreatePlayer.SetActive(false);
                     break;
 
                 case BattleState.Finish:
@@ -78,10 +79,8 @@ namespace  GAME
 
         private void CreateLocalPlayer()
         {
-            PlayerPreset playerPreset = PlayerSystem.Settings.PlayerClient;
-            PlayerObject player = PlayerSystem.Events.CreatePlayer?.Invoke(playerPreset);
-            player.Side = 2;
-            player.IsReadyForBattle = true;
+            PlayerSystem.Events.CreateLocalPlayer?.Invoke();
+            
             _view.ButtonCreatePlayer.SetActive(false);
         }
 

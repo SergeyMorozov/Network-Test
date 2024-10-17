@@ -718,7 +718,6 @@ GameObject:
   m_Component:
   - component: {fileID: 192561277}
   - component: {fileID: 192561278}
-  - component: {fileID: 192561279}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -750,17 +749,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 192561276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02d148d0890b2d44dbdf7f1c1b39a499, type: 3}
+  m_Script: {fileID: 11500000, guid: 6bb11ae95cb0ac54ebc906b8d4e7cc25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ChannelsToJoinOnConnect:
-  - Region
-  - Guild
-  FriendsList:
-  - Joe
-  - Jane
-  - Bob
+  - 111
   HistoryLengthToFetch: 0
+  UserName: 1
   chatAppSettings:
     AppIdChat: cd995e0e-9b47-4a87-9fd4-9e4bdb90430a
     AppVersion: 
@@ -768,7 +763,7 @@ MonoBehaviour:
     Server: 
     Port: 0
     ProxyServer: 
-    Protocol: 0
+    Protocol: 1
     EnableProtocolFallback: 1
     NetworkLogging: 1
   missingAppIdErrorPanel: {fileID: 1860384066}
@@ -784,20 +779,6 @@ MonoBehaviour:
   StateText: {fileID: 2126670842}
   UserIdText: {fileID: 162519642}
   TestLength: 2048
---- !u!114 &192561279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 192561276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 696a5174ff5e707479b3540eb56d14b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chatNewComponent: {fileID: 192561278}
-  idInput: {fileID: 1320934697}
 --- !u!1 &193452638
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,8 +958,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -75}
-  m_SizeDelta: {x: 240, y: 40}
+  m_AnchoredPosition: {x: 125, y: -80.41266}
+  m_SizeDelta: {x: 240, y: 29.174683}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &239533974
 MonoBehaviour:
@@ -1024,9 +1005,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 192561279}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: StartChat
+      - m_Target: {fileID: 192561278}
+        m_TargetAssemblyTypeName: Photon.Chat.Demo.TestNet, Assembly-CSharp
+        m_MethodName: Connect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1161,7 +1142,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: '<Color=Red>Please setup the Chat AppId.
+
+    Open the setup panel: Window,
+    Photon Chat, Setup.</Color>'
 --- !u!222 &241317251
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3271,10 +3255,10 @@ MonoBehaviour:
     The script IgnoreUiRaycastWhenInactive keeps inactive
     panels from blocking input.
 
-    
 
-    All users should use a UserId (to be
-    found as friend).
+
+    All users should use a UserId (to be found
+    as friend).
 
     This message will go away at runtime.'
 --- !u!222 &915497949
@@ -3616,6 +3600,7 @@ GameObject:
   - component: {fileID: 1079401852}
   - component: {fileID: 1079401855}
   - component: {fileID: 1079401853}
+  - component: {fileID: 1079401856}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3705,6 +3690,50 @@ Behaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079401850}
   m_Enabled: 1
+--- !u!114 &1079401856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079401850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!1 &1114666229
 GameObject:
   m_ObjectHideFlags: 0
@@ -4246,7 +4275,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 125, y: -5}
-  m_SizeDelta: {x: 240, y: 40}
+  m_SizeDelta: {x: 240, y: 50.825317}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1320934697
 MonoBehaviour:
@@ -4302,7 +4331,7 @@ MonoBehaviour:
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 192561279}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: EndEditOnEnter
         m_Mode: 1
@@ -6495,6 +6524,96 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
+--- !u!1 &2080798633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2080798636}
+  - component: {fileID: 2080798635}
+  - component: {fileID: 2080798634}
+  m_Layer: 0
+  m_Name: Scripts (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &2080798634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080798633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 696a5174ff5e707479b3540eb56d14b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chatNewComponent: {fileID: 2080798635}
+  idInput: {fileID: 1320934697}
+--- !u!114 &2080798635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080798633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d148d0890b2d44dbdf7f1c1b39a499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChannelsToJoinOnConnect:
+  - Region
+  - Guild
+  FriendsList:
+  - Joe
+  - Jane
+  - Bob
+  HistoryLengthToFetch: 0
+  chatAppSettings:
+    AppIdChat: cd995e0e-9b47-4a87-9fd4-9e4bdb90430a
+    AppVersion: 
+    FixedRegion: 
+    Server: 
+    Port: 0
+    ProxyServer: 
+    Protocol: 0
+    EnableProtocolFallback: 1
+    NetworkLogging: 1
+  missingAppIdErrorPanel: {fileID: 1860384066}
+  ConnectingLabel: {fileID: 1323013538}
+  ChatPanel: {fileID: 1507568401}
+  UserIdFormPanel: {fileID: 814826291}
+  InputFieldChat: {fileID: 1989416850}
+  CurrentChannelText: {fileID: 1641022483}
+  ChannelToggleToInstantiate: {fileID: 342400385}
+  FriendListUiItemtoInstantiate: {fileID: 328181930}
+  ShowState: 1
+  Title: {fileID: 938244445}
+  StateText: {fileID: 2126670842}
+  UserIdText: {fileID: 162519642}
+  TestLength: 2048
+--- !u!4 &2080798636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080798633}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2126670840
 GameObject:
   m_ObjectHideFlags: 0
@@ -6682,6 +6801,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1079401851}
   - {fileID: 192561277}
+  - {fileID: 2080798636}
   - {fileID: 770857990}
   - {fileID: 1809679013}
   - {fileID: 1860384067}

@@ -11,8 +11,16 @@ namespace  GAME
 
         private void StartHost(string hostName)
         {
-            NetworkSystem.Data.ConnectType = ConnectType.Host;
+            NetworkSystem.Data.ConnectMode = ConnectType.Host;
+            NetworkSystem.Data.HostName = hostName.Replace(" ", "_");
+            NetworkSystem.Data.UserName = "Host";
+            NetworkSystem.Events.Connect?.Invoke();
             
+            NetworkSystem.Events.ConnectComplete += ConnectComplete;
+        }
+
+        private void ConnectComplete()
+        {
             PlayerSystem.Events.CreatePlayer?.Invoke(PlayerSystem.Settings.PlayerHost);
             PlayerSystem.Data.CurrentPlayer = PlayerSystem.Data.Players[0];
             PlayerSystem.Data.CurrentPlayer.Side = 1;

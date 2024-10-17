@@ -7,6 +7,11 @@ namespace  GAME
     {
         private void Awake()
         {
+            PlayerSystem.Events.CreateLocalPlayer += CreateLocalPlayer;
+        }
+
+        private void CreateLocalPlayer()
+        {
             BattleSystem.Events.MoveReady += MoveReady;
         }
 

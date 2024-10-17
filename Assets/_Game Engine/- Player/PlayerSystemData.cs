@@ -9,7 +9,7 @@ namespace GAME
         public PlayerObject CurrentPlayer;
         public List<PlayerObject> Players;
 
-        public PlayerObject GetFreePlayer(int sideEnemy)
+        public PlayerObject GetEnemyPlayer(int sideEnemy)
         {
             return Players.Find(p => p.Side != sideEnemy);
         }

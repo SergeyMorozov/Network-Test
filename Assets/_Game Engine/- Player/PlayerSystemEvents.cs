@@ -6,6 +6,7 @@ namespace GAME
     public class PlayerSystemEvents
     {
         public Func<PlayerPreset, PlayerObject> CreatePlayer;
+        public Action CreateLocalPlayer;
         public Action<PlayerObject> PlayerReady;
         public Action<PlayerObject, float> PlayerHealthChange;
         public Action<PlayerObject, float> PlayerDamage;

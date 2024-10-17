@@ -10,16 +10,18 @@ namespace  GAME
             BattleSystem.Events.BattleCreate += BattleCreate;
         }
 
-        private void BattleCreate(PlayerObject player)
+        private void BattleCreate(PlayerObject player, int levelID)
         {
             BattleData battle = new BattleData();
             BattleSystem.Data.Battles.Add(battle);
             battle.Players = new List<PlayerObject> { player };
 
-            LevelPreset levelPreset = Tools.GetRandomObject(LevelSystem.Settings.Levels);
+            LevelPreset levelPreset = levelID > 0
+                ? LevelSystem.Settings.GetLevelByID(levelID)
+                : Tools.GetRandomObject(LevelSystem.Settings.Levels);
             battle.Level = LevelSystem.Events.LevelCreate?.Invoke(levelPreset);
             LevelSystem.Events.SetPlayer?.Invoke(battle.Level, player);
-            
+
             BattleSystem.Events.SetState?.Invoke(battle, BattleState.WaitEnemy);
         }
     }

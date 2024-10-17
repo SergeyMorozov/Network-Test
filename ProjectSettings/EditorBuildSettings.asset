@@ -5,8 +5,11 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Photon/PhotonChat/Demos/DemoChat/DemoChat-Scene.unity
     guid: ec07267f6a28fb044ac89845274e79af
+  - enabled: 1
+    path: Assets/_Scenes/Game.unity
+    guid: eded43d15ed319c4e8938cd7f1e928e0
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

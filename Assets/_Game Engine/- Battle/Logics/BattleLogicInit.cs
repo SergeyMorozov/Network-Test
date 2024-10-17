@@ -11,9 +11,9 @@ namespace  GAME
 
         private void PlayerReady(PlayerObject player)
         {
-            if (player == PlayerSystem.Data.CurrentPlayer)
+            if (player == PlayerSystem.Data.CurrentPlayer && player.Side == 1)
             {
-                BattleSystem.Events.BattleCreate?.Invoke(player);
+                BattleSystem.Events.BattleCreate?.Invoke(player, 0);
             }
         }
     }

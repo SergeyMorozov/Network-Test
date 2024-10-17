@@ -10,6 +10,13 @@ namespace  GAME
         private void Awake()
         {
             PlayerSystem.Events.CreatePlayer += CreatePlayer;
+            PlayerSystem.Events.CreateLocalPlayer += CreateLocalPlayer;
+            BattleSystem.Events.StateChanged += StateChanged;
+        }
+
+        private void StateChanged(BattleData arg1, BattleState arg2, BattleState arg3)
+        {
+            
         }
 
         private PlayerObject CreatePlayer(PlayerPreset playerPreset)
@@ -32,6 +39,14 @@ namespace  GAME
             
             PlayerSystem.Data.Players.Add(player);
             return player;
+        }
+
+        private void CreateLocalPlayer()
+        {
+            PlayerPreset playerPreset = PlayerSystem.Settings.PlayerClient;
+            PlayerObject player = PlayerSystem.Events.CreatePlayer?.Invoke(playerPreset);
+            player.Side = 2;
+            player.IsReadyForBattle = true;
         }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace  GAME
+namespace GAME
 {
     public class BattleLogicStart : MonoBehaviour
     {
@@ -12,16 +12,28 @@ namespace  GAME
         {
             foreach (BattleData battle in BattleSystem.Data.Battles)
             {
-                if(battle.State != BattleState.WaitEnemy) continue;
+                if (battle.State == BattleState.WaitEnemy)
+                {
+                    PlayerObject player = PlayerSystem.Data.GetEnemyPlayer(battle.Players[0].Side);
+                    if (player == null) continue;
 
-                PlayerObject player = PlayerSystem.Data.GetFreePlayer(battle.Players[0].Side);
-                if(player == null) continue;
-                
-                battle.Players.Add(player);
-                battle.MoveSide = 1;
-                
-                LevelSystem.Events.SetPlayer?.Invoke(battle.Level, player);
-                BattleSystem.Events.SetState?.Invoke(battle, BattleState.Start);
+                    battle.Players.Add(player);
+                    battle.MoveSide = 1;
+
+                    LevelSystem.Events.SetPlayer?.Invoke(battle.Level, player);
+                    BattleSystem.Events.SetState?.Invoke(battle, BattleState.Start);
+                }
+
+                if (battle.State == BattleState.Start)
+                {
+                    if (NetworkSystem.Data.ConnectMode == ConnectType.Host)
+                    {
+                        NetCommand command = new NetCommand { Name = "Battle", ID = battle.Level.Preset.ID };
+                        NetworkSystem.Events.SendCommand?.Invoke(command);
+                    }
+
+                    BattleSystem.Events.SetState?.Invoke(battle, BattleState.Play);
+                }
             }
         }
     }

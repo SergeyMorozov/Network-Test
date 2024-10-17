@@ -5,7 +5,7 @@ namespace GAME
     [Serializable]
     public class BattleSystemEvents
     {
-        public Action<PlayerObject> BattleCreate;
+        public Action<PlayerObject, int> BattleCreate;
         public Action<BattleData, BattleState> SetState;
         public Action<BattleData, BattleState, BattleState> StateChanged;
 
