@@ -12,6 +12,8 @@ namespace GAME
         public CanvasGroup PanelBlocking;
         public CanvasGroup PanelWait;
         public Transform IconWait;
+        public GameObject PanelVictory;
+        public GameObject PanelDefeat;
         public Button ButtonExit;
         // public Button ButtonCreatePlayer;
         public Button ButtonNext;

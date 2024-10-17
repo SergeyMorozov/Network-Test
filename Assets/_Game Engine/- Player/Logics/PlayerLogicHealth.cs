@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,7 +22,7 @@ namespace  GAME
             }
             else
             {
-                PlayerSystem.Events.PlayerDead?.Invoke(player);
+                StartCoroutine(PlayerDead(player));
             }
         }
 
@@ -32,6 +33,12 @@ namespace  GAME
             if(damage <= 0) return;
 
             PlayerHealthChange(player, -damage);
+        }
+
+        IEnumerator PlayerDead(PlayerObject player)
+        {
+            yield return new WaitForSeconds(1.5f);
+            PlayerSystem.Events.PlayerDead?.Invoke(player);
         }
     }
 }

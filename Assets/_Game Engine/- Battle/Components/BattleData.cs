@@ -9,6 +9,7 @@ namespace GAME
         public BattlePreset Preset;
 
         public int MoveSide;
+        public int WinSide;
         public BattleState State;
         public LevelObject Level;
         public List<PlayerObject> Players;

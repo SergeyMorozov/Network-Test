@@ -8,6 +8,7 @@ namespace  GAME
         private void Awake()
         {
             BattleSystem.Events.MoveComplete += MoveComplete;
+            PlayerSystem.Events.PlayerDead += PlayerDead;
         }
 
         private void MoveComplete(BattleData battle)
@@ -25,6 +26,13 @@ namespace  GAME
             yield return new WaitForSeconds(1f);
             BattleSystem.Events.MoveReady?.Invoke(battle);
         }
+        
+        private void PlayerDead(PlayerObject player)
+        {
+            BattleSystem.Data.CurrentBattle.WinSide = player.Side == 1 ? 2 : 1;
+            BattleSystem.Events.SetState?.Invoke(BattleSystem.Data.CurrentBattle, BattleState.Finish);
+        }
+
     }
 }
 

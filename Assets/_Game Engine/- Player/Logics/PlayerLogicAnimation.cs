@@ -12,6 +12,8 @@ namespace  GAME
             PlayerSystem.Events.AnimShield += AnimShield;
             PlayerSystem.Events.AnimHealth += AnimHealth;
             PlayerSystem.Events.AnimFireball += AnimFireball;
+            
+            PlayerSystem.Events.PlayerDead += PlayerDead;
         }
 
         private void SkillActive(BattleData battle, PlayerObject playerSource, PlayerObject playerTarget, SkillData skill)
@@ -69,6 +71,10 @@ namespace  GAME
             Destroy(fx, 3);
         }
 
+        private void PlayerDead(PlayerObject player)
+        {
+            player.Ref.Animator.SetTrigger("Die");
+        }
 
     }
 }

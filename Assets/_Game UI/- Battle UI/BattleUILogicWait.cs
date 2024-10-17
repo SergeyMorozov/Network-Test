@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
@@ -15,6 +14,9 @@ namespace  GAME
         {
             _view = BattleCanvas.Instance.View;
             _view.gameObject.SetActive(false);
+            
+            _view.PanelVictory.SetActive(false);
+            _view.PanelDefeat.SetActive(false);
             
             _view.ButtonExit.onClick.AddListener(BattleExit);
             // _view.ButtonCreatePlayer.onClick.AddListener(CreateLocalPlayer);
@@ -44,7 +46,9 @@ namespace  GAME
                     break;
 
                 case BattleState.Finish:
-                    Hide();
+                    int winSide = BattleSystem.Data.CurrentBattle.WinSide;
+                    _view.PanelVictory.SetActive(winSide == PlayerSystem.Data.CurrentPlayer.Side);
+                    _view.PanelDefeat.SetActive(winSide != PlayerSystem.Data.CurrentPlayer.Side);
                     break;
 
             }
